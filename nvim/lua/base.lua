@@ -5,9 +5,9 @@ local global = vim.g
 local api = vim.api
 local diagnostic = vim.diagnostic
 
-option.encoding = 'utf-8' -- 文字エンコーディングをUTF-8
+option.encoding = "utf-8" -- 文字エンコーディングをUTF-8
 option.number = true -- 行番号を表示
-option.clipboard = 'unnamedplus' -- システムのクリップボードと連携
+option.clipboard = "unnamedplus" -- システムのクリップボードと連携
 option.list = true -- 不可視文字を表示
 option.expandtab = true -- タブをスペースに変換
 option.tabstop = 2 -- タブ文字の幅を2スペースに設定
@@ -23,14 +23,14 @@ option.showmatch = true -- 括弧の対応をハイライト
 option.updatetime = 250 -- 変更検知を高速化
 
 -- mapleader
-global.mapleader = ' ' -- Spaceをグローバルリーダーキーに設定
-global.maplocalleader = '\\' -- \をローカルリーダーキーに設定
+global.mapleader = " " -- Spaceをグローバルリーダーキーに設定
+global.maplocalleader = "\\" -- \をローカルリーダーキーに設定
 
 -- autocmd
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
-api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-  group = api.nvim_create_augroup('float_diagnostic', { clear = true }),
+api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  group = api.nvim_create_augroup("float_diagnostic", { clear = true }),
   callback = function ()
-    diagnostic.open_float(nil, { focus=false })
+    diagnostic.open_float(nil, { focus = false })
   end
 })
