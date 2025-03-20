@@ -22,7 +22,7 @@ require("lazy").setup({
  	 	-- add LazyVim and import its plugins
  	 	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
  	 	-- import/override plugins
- 	 	-- { import = "plugins" },
+ 	 	{ import = "plugins" },
  	},
  	-- Configure any other settigs here. See the documentation for more details.
  	install = { colorscheme = { "tokyonight" } },
