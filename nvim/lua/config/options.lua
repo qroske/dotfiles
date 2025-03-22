@@ -42,14 +42,3 @@ options.wrap = false -- 行を折り返さない
 options.termguicolors = true -- 24-bitのフルカラーを有効化
 options.updatetime = 250 -- 変更検知を高速化
 options.mouse = "a" -- mouse操作を有効化
-
-local api = vim.api
-local diagnostic = vim.diagnostic
--- autocmd
--- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
-api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-	group = api.nvim_create_augroup("float_diagnostic", { clear = true }),
-	callback = function()
-		diagnostic.open_float(nil, { focus = false })
-	end,
-})
