@@ -42,3 +42,8 @@ options.wrap = false -- 行を折り返さない
 options.termguicolors = true -- 24-bitのフルカラーを有効化
 options.updatetime = 250 -- 変更検知を高速化
 options.mouse = "a" -- mouse操作を有効化
+
+-- --------------------
+-- LazyVim
+-- --------------------
+global.lazyvim_picker = "telescope"
