@@ -44,6 +44,8 @@ map("n", "<Leader>d", ":lua vim.diagnostic.open_float()<CR>", { noremap = true }
 -- project
 -- ---------------
 map("n", "<Leader>p", ":Telescope project", { noremap = true, silent = true })
+-- Ctrl-c to esc
+map("i", "<C-c>", "<Esc>", { noremap = true, silent = true })
 
 -- ---------------
 -- rebind
