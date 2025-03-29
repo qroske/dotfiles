@@ -41,6 +41,11 @@ map("n", "<Leader>tt", ":terminal\n", { noremap = true }) -- ノーマルモー�
 map("n", "<Leader>d", ":lua vim.diagnostic.open_float()<CR>", { noremap = true }) -- ノーマルモードでエラーや警告を表示する
 
 -- ---------------
+-- project
+-- ---------------
+map("n", "<Leader>p", ":Telescope project", { noremap = true, silent = true })
+
+-- ---------------
 -- rebind
 -- ---------------
 -- comment
