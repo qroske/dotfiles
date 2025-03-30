@@ -30,5 +30,13 @@ return {
         },
       },
     },
+    terminal = {
+      win = {
+        position = "float",
+        width = 0.99,
+        height = 0.99,
+        border = "double",
+      },
+    },
   },
 }
