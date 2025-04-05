@@ -24,7 +24,7 @@ map("n", "<Leader>tt", ":terminal\n", { noremap = true }) -- ノーマルモー�
 -- diagnostics show
 map("n", "<Leader>d", ":lua vim.diagnostic.open_float()<CR>", { noremap = true }) -- ノーマルモードでエラーや警告を表示する
 -- project
-map("n", "<Leader>p", ":Telescope project", { noremap = true, silent = true })
+map("n", "<Leader>p", ":Telescope project<CR>", { noremap = true, silent = true })
 -- Ctrl-c to esc
 map("i", "<C-c>", "<Esc>", { noremap = true, silent = true })
 
