@@ -16,6 +16,10 @@ return {
             require("telescope._extensions.project.actions").change_working_directory(prompt_bufnr, false)
             -- Neotreeを現在のディレクトリで開く
             vim.cmd("Neotree " .. require("telescope.actions.state").get_selected_entry().path)
+            -- アクティブなLSPクライアントを全て停止する
+            for _, client in pairs(vim.lsp.get_clients()) do
+              vim.lsp.stop_client(client.id)
+            end
           end,
         },
       },
