@@ -25,5 +25,8 @@ require("lazy").setup({
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "tokyonight" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = {
+    enabled = true, -- 自動チェック有効
+    notify = false, -- 通知を非表示
+  },
 })
