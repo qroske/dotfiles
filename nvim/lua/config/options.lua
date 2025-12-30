@@ -22,7 +22,8 @@ local options = vim.opt
 options.encoding = "utf-8" -- 文字エンコーディングをUTF-8
 options.list = true -- 不可視文字を表示
 options.number = true -- 行番号を表示
-options.relativenumber = false -- 絶対行番号で表示
+options.relativenumber = true -- 相対行番号で表示
+options.numberwidth = 4 -- 行番号の幅
 options.autowrite = false -- ファイルの自動保存を無効化
 options.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- SSH環境出ない場合にシステムのクリップボードと連携
 options.completeopt = "menu,menuone,noselect" -- 補完メニューを表示。1つしかない場合でも表示。デフォルトは選択しない
@@ -43,7 +44,3 @@ options.termguicolors = true -- 24-bitのフルカラーを有効化
 options.updatetime = 250 -- 変更検知を高速化
 options.mouse = "a" -- mouse操作を有効化
 
--- --------------------
--- LazyVim
--- --------------------
-global.lazyvim_picker = "telescope"
