@@ -3,6 +3,9 @@
 -- --------------------------------
 return {
   "rmagatti/auto-session",
+  dependencies = {
+    "nvim-neo-tree/neo-tree.nvim", -- ファイラー
+  },
   config = function()
     require("auto-session").setup({
       -- セッションの保存先
