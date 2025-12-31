@@ -20,6 +20,34 @@ return {
           enabled = true, -- 現在のファイルを追跡
         },
         use_libuv_file_watcher = true, -- ファイル変更を自動検知
+        -- --------------------------------
+        -- ディレクトリ/ファイルの表示設定
+        -- --------------------------------
+        filtered_items = {
+          visible = true, -- フィルターされたアイテムも表示する
+          hide_dotfiles = false, -- .で始まるファイルをを表示する
+          hide_gitignored = false, -- gitignoreされたファイルを表示する
+          -- 特定のファイル/ディレクトリを隠す
+          hide_by_name = {
+          },
+          -- 特定のパターンで隠す
+          hide_by_pattern = {
+          },
+          -- 常に表示するファイル
+          always_show = {
+          },
+          -- 常に表示するパターン
+          always_show_by_pattern = {
+          },
+          -- 常に表示しないファイル
+          never_show = {
+            ".DS_Store",
+            "thumbs.db",
+          },
+          -- 常に表示しないパターン
+          never_show_by_pattern = {
+          },
+        },
       },
     })
   end,
