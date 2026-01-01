@@ -14,6 +14,10 @@ return {
       close_if_last_window = true, -- 最後のウィンドウならneo-treeを閉じる
       window = {
         width = 30,
+        mappings = {
+          ["l"] = "open", -- lでファイルを開く/ディレクトリを開く
+          ["h"] = "close_node", -- hでディレクトリを閉じる
+        }
       },
       filesystem = {
         follow_current_file = {
