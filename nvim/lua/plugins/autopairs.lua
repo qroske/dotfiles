@@ -73,9 +73,9 @@ return {
         pattern = [=[[%'%"%>%]%)%}%,]]=], -- この文字の前で停止する（正規表現）
         end_key = "$", -- 行末まで囲む場合のキー
         keys = "qwertyuiopzxcvbnmasdfghjkl", -- 単語の選択に使うキー
-        check_comma = ture, -- カンマの前で停止する
+        check_comma = true, -- カンマの前で停止する
         highlight = "Search", -- 選択時のハイライト（検索ハイライトと同じ色）
-        highlight = "Comment", -- その他の候補のハイライト（コメントと同じ色）
+        highlight_grey = "Comment", -- その他の候補のハイライト（コメントと同じ色）
       }
     })
 
@@ -149,13 +149,6 @@ return {
       -- Markdown: コードブロックの ``` を自動補完。ただし、Enterキーでは補完しない
       Rule("```", "```", "markdown")
         :with_cr(function() return false end),
-      -- HTML: タグの < > を自動補完
-      Rule("<", ">")
-        :only_cr() -- Enterキーでのみ発動
-        :with_pair(cond.before_text_check("<")) -- < の前に何もない場合のみ適用
-        :with_move(function(opts)
-          return opts.char == ">" -- > を入力したときにカーソルを移動
-        end),
     })
 
     -- ---------------------------------------------------------
@@ -196,7 +189,7 @@ return {
       }
       -- 前の文字と次の文字が括弧ペアになっているかで挙動を分ける
       -- <Del> = 次の文字を削除、<BS> = 前の文字を削除
-      if pair[prev_char] == next_char then
+      if pairs[prev_char] == next_char then
         return "<Del><BS>" -- ペアの場合: 両方削除、
       else
         return "<BS>" -- ペアでない場合: 通常のBackspace
