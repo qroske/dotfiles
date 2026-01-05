@@ -51,6 +51,7 @@ config.clean_exit_codes = {}
 config.disable_default_key_bindings = false
 -- keybuinds.luaを読み込めるようにする
 config.keys = require("keybinds").keys
+config.key_tables = require("keybinds").key_tables
 -- Leader Key
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
 
@@ -86,8 +87,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     { Text = SOLID_RIGHT_ARROW },
   }
 end)
--- Workspace名を左上に表示
-wezterm.on("update-right-status", function(window, _)
+
+wezterm.on("update-right-status", function(window, pane)
+  -- Workspace名を左上に表示
   local workspace = window:active_workspace()
   local background = "none"
   local foreground = "#FFFFFF"
@@ -101,8 +103,17 @@ wezterm.on("update-right-status", function(window, _)
     { Text = workspace },
     { Background = { Color = background } },
     { Foreground = { Color = foreground } },
-    { Text = "" },
+   { Text = "" }
   }))
+
+  -- キーテーブル名を右上に表示
+  local key_table_name = window:active_key_table()
+  if key_table_name then
+    key_table_name = "   Table: " .. key_table_name .. "   "
+  else
+    key_table_name = "   Table: None   "
+  end
+  window:set_right_status(key_table_name or "")
 end)
 
 return config
